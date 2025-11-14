@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kartu Suku Kata Hewan (UNO Style)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>🃏 Permainan Kartu Suku Kata Hewan 🐾</h1>
+    <p>Susun suku kata menjadi nama hewan</p>
+
+    <div id="game-area">
+      <div id="cards">
+        <h2>Pilih Kartu:</h2>
+        <div id="card-buttons"></div>
+        <p id="current">Kata Sekarang: <span id="word"></span></p>
+        <button id="check">✅ Cek Kata</button>
+        <p id="score">Skor: 0</p>
+      </div>
+
+      <div id="board">
+        <h3>🐕 Hewan yang Ditemukan</h3>
+        <ul id="animal-list"></ul>
+      </div>
+    </div>
+
+    <script>
+      // 🔡 Semua suku kata dari ba sampai zo
+      const syllables = [
+        "Ba",
+        "Bi",
+        "Bu",
+        "Be",
+        "Bo",
+        "Ca",
+        "Ci",
+        "Cu",
+        "Ce",
+        "Co",
+        "Da",
+        "Di",
+        "Du",
+        "De",
+        "Do",
+        "Fa",
+        "Fi",
+        "Fu",
+        "Fe",
+        "Fo",
+        "Ga",
+        "Gi",
+        "Gu",
+        "Ge",
+        "Go",
+        "Ha",
+        "Hi",
+        "Hu",
+        "He",
+        "Ho",
+        "Ja",
+        "Ji",
+        "Ju",
+        "Je",
+        "Jo",
+        "Ka",
+        "Ki",
+        "Ku",
+        "Ke",
+        "Ko",
+        "La",
+        "Li",
+        "Lu",
+        "Le",
+        "Lo",
+        "Ma",
+        "Mi",
+        "Mu",
+        "Me",
+        "Mo",
+        "Na",
+        "Ni",
+        "Nu",
+        "Ne",
+        "No",
+        "Pa",
+        "Pi",
+        "Pu",
+        "Pe",
+        "Po",
+        "Ra",
+        "Ri",
+        "Ru",
+        "Re",
+        "Ro",
+        "Sa",
+        "Si",
+        "Su",
+        "Se",
+        "So",
+        "Ta",
+        "Ti",
+        "Tu",
+        "Te",
+        "To",
+        "Va",
+        "Vi",
+        "Vu",
+        "Ve",
+        "Vo",
+        "Wa",
+        "Wi",
+        "Wu",
+        "We",
+        "Wo",
+        "Ya",
+        "Yi",
+        "Yu",
+        "Ye",
+        "Yo",
+        "Za",
+        "Zi",
+        "Zu",
+        "Ze",
+        "Zo",
+        "Ng",
+        "Kan",
+        "Aa",
+        "Bb",
+        "Cc",
+        "Dd",
+        "Ee",
+        "Ff",
+        "Gg",
+        "Hh",
+        "Ii",
+        "Jj",
+        "Kk",
+        "Ll",
+        "Mm",
+        "Nn",
+        "Oo",
+        "Pp",
+        "Qq",
+        "Rr",
+        "Ss",
+        "Tt",
+        "Uu",
+        "Vv",
+        "Ww",
+        "Xx",
+        "Yy",
+        "Zz",
+      ];
+
+      // 🐾 Daftar nama hewan
+      const animals = [
+        "anjing",
+        "ayam",
+        "babi",
+        "bebek",
+        "beruang",
+        "burung",
+        "buaya",
+        "banteng",
+        "belalang",
+        "cacing",
+        "cicak",
+        "cupang",
+        "domba",
+        "elang",
+        "gajah",
+        "gurita",
+        "gagak",
+        "garuda",
+        "harimau",
+        "hiu",
+        "ikan",
+        "itikan",
+        "jerapah",
+        "kuda",
+        "kucing",
+        "kambing",
+        "kerbau",
+        "kelinci",
+        "katak",
+        "kepiting",
+        "koala",
+        "kupu",
+        "landak",
+        "lebah",
+        "macan",
+        "monyet",
+        "naga",
+        "orangutan",
+        "panda",
+        "paus",
+        "pelikan",
+        "penyu",
+        "puyuh",
+        "rusa",
+        "rubah",
+        "sapi",
+        "serigala",
+        "semut",
+        "siput",
+        "singa",
+        "ular",
+        "udang",
+        "zebra",
+        "udang",
+        "gurita",
+        "kambing",
+        "orang hutan",
+      ];
+
+      let currentWord = "";
+      let score = 0;
+
+      // 🔘 Tampilkan kartu suku kata
+      const cardButtons = document.getElementById("card-buttons");
+      syllables.forEach((syllable) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.textContent = syllable;
+        card.addEventListener("click", () => {
+          currentWord += syllable;
+          document.getElementById("word").textContent = currentWord;
+        });
+        cardButtons.appendChild(card);
+      });
+
+      // ✅ Tombol cek kata
+      document.getElementById("check").addEventListener("click", () => {
+        const word = currentWord.toLowerCase().trim();
+
+        if (animals.includes(word)) {
+          const li = document.createElement("li");
+          li.textContent = word;
+          document.getElementById("animal-list").appendChild(li);
+
+          score++;
+          document.getElementById("score").textContent = "Skor: " + score;
+          alert("🎉 Hebat! Kamu menemukan hewan: " + word);
+        } else {
+          alert("😅 Belum benar, coba lagi!");
+        }
+
+        currentWord = "";
+        document.getElementById("word").textContent = "";
+      });
+    </script>
+  </body>
+</html>

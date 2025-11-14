@@ -1,0 +1,120 @@
+body {
+  font-family: "Comic Sans MS", sans-serif;
+  background: radial-gradient(circle at center, #0231ff, #ffffff);
+  text-align: center;
+  color: rgb(2, 2, 2);
+  padding: 20px;
+}
+
+h1 {
+  color: #0c0c0c;
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);
+}
+
+#game-area {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+#cards {
+  width: 620px;
+  background: #1a17c460;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+#card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* 🃏 Gaya kartu seperti UNO */
+.card {
+  width: 90px;
+  height: 130px;
+  background: linear-gradient(145deg, #099e65, #8a8382);
+  border-radius: 20px;
+  border: 4px solid #c8ff00;
+  box-shadow: 0 4px 10px rgba(75, 64, 64, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+}
+
+#current {
+  font-size: 24px;
+  color: #4caf50;
+  margin-top: 15px;
+}
+
+#check {
+  margin-top: 20px;
+  padding: 12px 18px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#check:hover {
+  background-color: #388e3c;
+}
+
+#score {
+  font-size: 22px;
+  color: #ff5252;
+  margin-top: 15px;
+}
+
+#board {
+  width: 280px;
+  background: #424242;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+#board h3 {
+  color: #ffeb3b;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+
+#animal-list {
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#animal-list li {
+  background: #f5f5f5;
+  color: #000;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 6px 0;
+  text-align: center;
+  font-weight: bold;
+}
